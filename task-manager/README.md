@@ -1,70 +1,150 @@
-# Getting Started with Create React App
+# Task Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Author**: George Marais
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+The **Task Management System** is a feature-rich web application developed with **TypeScript**. It allows users to create, update, and manage tasks with added functionality for task categorization, priority management, and deadlines. This application includes:
 
-### `npm start`
+- Task creation, editing, and deletion.
+- Categorization into "Work" or "Personal" tasks.
+- Task prioritization (Low, Medium, High).
+- Task deadline management.
+- Local storage persistence to retain tasks even after browser refresh.
+- Simple unit tests for critical task services.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project demonstrates advanced TypeScript features, modular design, and unit testing with **Jest**.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Project Structure](#project-structure)
+5. [Installation](#installation)
+6. [Usage](#usage)
+7. [Testing](#testing)
+8. [Future Improvements](#future-improvements)
+9. [Contributing](#contributing)
+10. [License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Task Management**: Create, update, delete tasks with customizable priority and deadlines.
+- **Task Categorization**: Group tasks by category (e.g., Work, Personal).
+- **User Authentication (Simulated)**: Allows users to sign in with their credentials (mocked with `localStorage`).
+- **Local Storage Persistence**: Saves tasks locally for persistent state across browser sessions.
+- **Type Safety**: Fully typed with TypeScript interfaces and models.
+- **Unit Tests**: Includes unit testing for core services using **Jest**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **TypeScript**: For type-safe code and modern JavaScript features.
+- **React**: (Optional for UI) Used for building reusable components and managing application state.
+- **Jest**: For unit testing services and components.
+- **localStorage**: Used for storing tasks persistently in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Project Structure
 
-### `npm run eject`
+```
+/src
+  /components
+    - TaskList.tsx        # Renders a list of tasks
+    - TaskItem.tsx        # Renders individual tasks
+    - AddTaskForm.tsx     # Form to add new tasks (not included in the sample)
+    - EditTaskForm.tsx    # Form to edit tasks (not included in the sample)
+  /models
+    - Task.ts             # Defines Task interface and factory function
+    - User.ts             # Defines User interface and authentication function
+  /services
+    - TaskService.ts      # Service handling task CRUD operations
+    - AuthService.ts      # Simulated user authentication service (not included in the sample)
+  /tests
+    - TaskService.test.ts # Unit tests for task management
+  App.tsx                 # Main React app component
+  index.tsx               # Entry point for React app
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To run this project locally, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Clone the repository**:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```bash
+    git clone https://github.com/your-username/task-management-system.git
+    ```
 
-## Learn More
+2. **Navigate into the project directory**:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```bash
+    cd task-management-system
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Install dependencies**:  
+   Make sure you have Node.js installed, then run:
 
-### Code Splitting
+    ```bash
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. **Start the application**:
 
-### Analyzing the Bundle Size
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   This will start a development server and open the app in your default browser.
 
-### Making a Progressive Web App
+5. **Run tests**:  
+   To run unit tests:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    ```bash
+    npm test
+    ```
 
-### Advanced Configuration
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Once the application is running, you can:
 
-### Deployment
+1. **View Tasks**: See all tasks displayed in a list format.
+2. **Add a New Task**: (Form not included in this sample, but you can expand the app by adding the `AddTaskForm.tsx` component).
+3. **Delete Tasks**: Remove tasks using the delete button.
+4. **Local Storage**: The app uses `localStorage` to save your tasks, so your task list will persist even after refreshing the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Testing
 
-### `npm run build` fails to minify
+This project includes unit tests for the **TaskService** class. These tests check the basic functionality of creating, deleting, and updating tasks.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run the tests:
+
+```bash
+npm test
+```
+
+### Sample Test Coverage
+
+- Task addition and deletion.
+- Task updates.
+
+## Future Improvements
+
+- **Task Filtering**: Add the ability to filter tasks by category or priority.
+- **Advanced Authentication**: Integrate real user authentication with JWT.
+- **Task Editing**: Add a feature to edit existing tasks.
+- **Deadline Notifications**: Implement reminders for upcoming task deadlines.
+- **Real-Time Sync**: Add WebSocket or Firebase integration for real-time task updates across devices.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new feature branch (`git checkout -b feature-name`).
+3. Make your changes and commit them (`git commit -am 'Add some feature'`).
+4. Push your branch (`git push origin feature-name`).
+5. Create a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
